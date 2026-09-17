@@ -1,7 +1,7 @@
 <?
 $title = 'Супер-мега сайт';
 $header = "Добро пожаловать на наш сайт!";
-$id = strtolower(strip_tags(trim($_GET['id'])));
+$id = strtolower(strip_tags(trim($_GET['id'] ?? '')));
 // Инициализация заголовков страницы
 switch($id){
 	case 'contact': 

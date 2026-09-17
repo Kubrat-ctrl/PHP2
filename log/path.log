@@ -1,0 +1,17 @@
+1789643743|/|
+1789643749|/index.php|http://schoola2.loc/
+1789643750|/index.php?id=contact|http://schoola2.loc/index.php
+1789643751|/index.php?id=about|http://schoola2.loc/index.php?id=contact
+1789643752|/index.php?id=info|http://schoola2.loc/index.php?id=about
+1789643753|/index.php?id=gbook|http://schoola2.loc/index.php?id=info
+1789643755|/index.php?id=log|http://schoola2.loc/index.php?id=gbook
+1789643767|/index.php|http://schoola2.loc/index.php?id=log
+1789643777|/index.php?id=gbook|http://schoola2.loc/index.php
+1789643779|/index.php?id=log|http://schoola2.loc/index.php?id=gbook
+1789643853|/index.php?id=log|http://schoola2.loc/index.php?id=gbook
+1789643854|/index.php|http://schoola2.loc/index.php?id=log
+1789643856|/index.php?id=contact|http://schoola2.loc/index.php
+1789643857|/index.php?id=about|http://schoola2.loc/index.php?id=contact
+1789643857|/index.php?id=info|http://schoola2.loc/index.php?id=about
+1789643858|/index.php?id=gbook|http://schoola2.loc/index.php?id=info
+1789643859|/index.php?id=log|http://schoola2.loc/index.php?id=gbook
