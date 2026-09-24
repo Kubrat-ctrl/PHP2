@@ -14,14 +14,18 @@
 
   /* Сохранение записи в БД */
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = $mysqli->real_escape_string(strip_tags(trim($_POST['name'] ?? '')));
-    $email = $mysqli->real_escape_string(strip_tags(trim($_POST['email'] ?? '')));
-    $msg = $mysqli->real_escape_string(strip_tags(trim($_POST['msg'] ?? '')));
+    $name = strip_tags(trim($_POST['name'] ?? ''));
+    $email = strip_tags(trim($_POST['email'] ?? ''));
+    $msg = strip_tags(trim($_POST['msg'] ?? ''));
 
     if ($name && $email && $msg) {
-      $sql = "INSERT INTO msgs (name, email, msg) VALUES ('$name', '$email', '$msg')";
-      $result = $mysqli->query($sql);
-      if (!$result) {
+      $sql = 'INSERT INTO msgs (name, email, msg) VALUES (?, ?, ?)';
+      $stmt = $mysqli->prepare($sql);
+      if ($stmt) {
+        $stmt->bind_param('sss', $name, $email, $msg);
+        $stmt->execute();
+        $stmt->close();
+      } else {
         echo '<p>Ошибка при сохранении записи: ', $mysqli->error, '</p>';
       }
     }
@@ -32,9 +36,13 @@
   if (isset($_GET['del'])) {
     $del = (int) $_GET['del'];
     if ($del > 0) {
-      $sql = "DELETE FROM msgs WHERE id = $del";
-      $result = $mysqli->query($sql);
-      if (!$result) {
+      $sql = 'DELETE FROM msgs WHERE id = ?';
+      $stmt = $mysqli->prepare($sql);
+      if ($stmt) {
+        $stmt->bind_param('i', $del);
+        $stmt->execute();
+        $stmt->close();
+      } else {
         echo '<p>Ошибка при удалении записи: ', $mysqli->error, '</p>';
       }
     }
